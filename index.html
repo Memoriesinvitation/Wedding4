@@ -18,6 +18,15 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="intro-screen" id="introScreen" aria-hidden="true" data-visible-key="introScreen">
+    <div class="intro-screen__veil"></div>
+    <div class="intro-screen__content">
+      <span class="intro-screen__eyebrow">Invitation Opening</span>
+      <div class="intro-monogram" id="introMonogram">A | S</div>
+      <p class="intro-screen__text" id="introText">A beautiful evening is about to unfold.</p>
+    </div>
+  </div>
+
   <div class="page-shell">
     <div class="floating-blooms bloom-left" aria-hidden="true"></div>
     <div class="floating-blooms bloom-right" aria-hidden="true"></div>
@@ -118,7 +127,17 @@
           <span class="section-heading__eyebrow">Selected Moments</span>
           <h2>Place your favorite occasion photos here</h2>
         </div>
-        <div class="gallery-grid" id="galleryGrid"></div>
+        <div class="gallery-carousel scroll-reveal" id="galleryCarousel">
+          <button class="carousel-control carousel-control--prev" id="galleryPrev" type="button" aria-label="Previous photo">‹</button>
+          <div class="gallery-viewport">
+            <div class="gallery-track" id="galleryTrack"></div>
+          </div>
+          <button class="carousel-control carousel-control--next" id="galleryNext" type="button" aria-label="Next photo">›</button>
+        </div>
+        <div class="carousel-meta scroll-reveal">
+          <div class="carousel-progress" id="carouselProgress"></div>
+          <div class="carousel-caption" id="carouselCaption">Slide 1</div>
+        </div>
       </section>
 
       <section class="details-section section" id="details" data-section="details">

@@ -10,6 +10,7 @@
   const blockNodes = document.querySelectorAll("[data-block]");
   const visibilityNodes = document.querySelectorAll("[data-visible-key]");
   let selectedUploadFiles = [];
+  let galleryIndex = 0;
 
   function getVisibilityValue(key) {
     if (!key) {
@@ -107,6 +108,8 @@
     setText("coupleNames", config.coupleNames);
     setText("navMonogram", config.monogram);
     setText("songMonogram", config.monogram);
+    setText("introMonogram", config.monogram);
+    setText("introText", config.intro?.text);
     setText("heroEyebrow", config.text.heroEyebrow);
     setText("heroSubtitle", config.text.heroSubtitle);
     setText("heroSummary", config.text.heroSummary);
@@ -243,19 +246,93 @@
   }
 
   function renderGallery() {
-    const wrap = $("galleryGrid");
-    if (!wrap) {
+    const track = $("galleryTrack");
+    const progress = $("carouselProgress");
+    const caption = $("carouselCaption");
+
+    if (!track || !progress || !caption) {
       return;
     }
-    wrap.innerHTML = config.media.galleryImages
+
+    track.innerHTML = config.media.galleryImages
       .map(
         (src, index) => `
-          <figure class="gallery-card scroll-reveal">
+          <figure class="gallery-card gallery-slide">
             <img src="${src}" alt="${config.coupleNames} gallery image ${index + 1}">
           </figure>
         `
       )
       .join("");
+
+    progress.innerHTML = config.media.galleryImages
+      .map(
+        (_, index) => `<button class="carousel-dot${index === 0 ? " is-active" : ""}" type="button" data-slide-index="${index}" aria-label="Go to slide ${index + 1}"></button>`
+      )
+      .join("");
+
+    caption.textContent = `Slide 1 of ${config.media.galleryImages.length}`;
+  }
+
+  function setupGalleryCarousel() {
+    const track = $("galleryTrack");
+    const prev = $("galleryPrev");
+    const next = $("galleryNext");
+    const progress = $("carouselProgress");
+    const caption = $("carouselCaption");
+    const slides = Array.from(document.querySelectorAll(".gallery-slide"));
+
+    if (!track || !prev || !next || !progress || !caption || !slides.length) {
+      return;
+    }
+
+    function updateCarousel(index) {
+      galleryIndex = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${galleryIndex * 100}%)`;
+      caption.textContent = `Slide ${galleryIndex + 1} of ${slides.length}`;
+
+      progress.querySelectorAll(".carousel-dot").forEach((dot, dotIndex) => {
+        dot.classList.toggle("is-active", dotIndex === galleryIndex);
+      });
+    }
+
+    prev.addEventListener("click", () => updateCarousel(galleryIndex - 1));
+    next.addEventListener("click", () => updateCarousel(galleryIndex + 1));
+
+    progress.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      const nextIndex = Number(target.dataset.slideIndex);
+      if (!Number.isNaN(nextIndex)) {
+        updateCarousel(nextIndex);
+      }
+    });
+
+    let startX = 0;
+    let endX = 0;
+
+    track.addEventListener("touchstart", (event) => {
+      startX = event.changedTouches[0].clientX;
+    }, { passive: true });
+
+    track.addEventListener("touchend", (event) => {
+      endX = event.changedTouches[0].clientX;
+      const delta = endX - startX;
+
+      if (Math.abs(delta) < 40) {
+        return;
+      }
+
+      if (delta < 0) {
+        updateCarousel(galleryIndex + 1);
+      } else {
+        updateCarousel(galleryIndex - 1);
+      }
+    }, { passive: true });
+
+    updateCarousel(0);
   }
 
   function renderSchedule() {
@@ -573,6 +650,34 @@
     });
   }
 
+  function setupIntroScreen() {
+    const intro = $("introScreen");
+
+    if (!intro) {
+      return;
+    }
+
+    const enabled = config.intro?.enabled !== false && isVisibleByKey("introScreen");
+
+    if (!enabled) {
+      intro.remove();
+      document.body.classList.add("intro-complete");
+      return;
+    }
+
+    document.body.classList.add("has-intro");
+
+    window.setTimeout(() => {
+      intro.classList.add("is-leaving");
+      document.body.classList.add("intro-complete");
+    }, config.intro?.durationMs || 2400);
+
+    window.setTimeout(() => {
+      intro.remove();
+      document.body.classList.remove("has-intro");
+    }, (config.intro?.durationMs || 2400) + 900);
+  }
+
   function formatEventDate(value) {
     return new Date(value).toLocaleString(undefined, {
       weekday: "long",
@@ -594,7 +699,9 @@
   renderContacts();
   renderFaq();
   renderPalette();
+  setupIntroScreen();
   setupCountdown();
+  setupGalleryCarousel();
   setupMusicPlayer();
   setupUploads();
   setupRsvpForm();

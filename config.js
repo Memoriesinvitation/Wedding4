@@ -72,6 +72,11 @@ window.invitationConfig = {
     faqTitle: "Quick answers before the big day",
     footerMessage: "With love, we look forward to celebrating together."
   },
+  intro: {
+    enabled: true,
+    durationMs: 2600,
+    text: "A beautiful evening is about to unfold."
+  },
   venue: {
     name: "The Garden Pavilion",
     city: "Cairo, Egypt",
@@ -167,7 +172,8 @@ window.invitationConfig = {
     uploadToolbar: true,
     uploadFolderLink: false,
     uploadSubmit: true,
-    rsvpContacts: true
+    rsvpContacts: true,
+    introScreen: true
   },
   dressPalette: ["#2E3604", "#4E5E07", "#E19D29", "#D8D2CF", "#8D8179"],
   rsvp: {
