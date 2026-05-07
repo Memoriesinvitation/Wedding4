@@ -54,7 +54,7 @@ window.invitationConfig = {
     songCredit: "Spring Romance",
     uploadDescription:
       "This section can stay locked until the wedding day, or it can remain open at all times with one config change.",
-    uploadDropzoneTitle: "Tap to choose celebration photos and videos",
+    uploadDropzoneTitle: "Tap to choose celebration photos and videos to upload",
     uploadDropzoneHint:
       "Guests can select multiple photos and videos, preview them here, then submit them to your configured upload link.",
     uploadTargetHint:
@@ -234,15 +234,15 @@ window.invitationConfig = {
     songStatusValue: true,
     uploadEyebrow: true,
     uploadTitle: true,
-    uploadDescription: true,
+    uploadDescription: false,
     uploadPanel: true,
-    uploadStatus: true,
+    uploadStatus: false,
     uploadDropzone: true,
     uploadDropzoneTitle: true,
-    uploadDropzoneHint: true,
+    uploadDropzoneHint: false,
     uploadToolbar: true,
     uploadSelectionCount: true,
-    uploadTargetHint: true,
+    uploadTargetHint: false,
     uploadFolderLink: false,
     uploadSubmit: true,
     previewGrid: true,
