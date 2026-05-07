@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invitation Template</title>
-  <meta
-    name="description"
-    content="Configurable invitation website template for weddings, engagements, birthdays, and special celebrations."
-  >
+  <meta name="description"
+    content="Configurable invitation website template for weddings, engagements, birthdays, and special celebrations.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    id="dynamic-font-link"
+  <link id="dynamic-font-link"
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="intro-screen" id="introScreen" aria-hidden="true" data-visible-key="introScreen">
     <div class="intro-screen__veil"></div>
     <div class="intro-screen__content">
-      <span class="intro-screen__eyebrow">Invitation Opening</span>
-      <div class="intro-monogram" id="introMonogram">A | S</div>
-      <p class="intro-screen__text" id="introText">A beautiful evening is about to unfold.</p>
+      <span class="intro-screen__eyebrow" data-visible-key="introEyebrow">Invitation Opening</span>
+      <div class="intro-monogram" id="introMonogram" data-visible-key="introMonogram">A | S</div>
+      <p class="intro-screen__text" id="introText" data-visible-key="introText">A beautiful evening is about to unfold.</p>
     </div>
   </div>
 
@@ -33,253 +31,269 @@
     <div class="grain-overlay" aria-hidden="true"></div>
 
     <header class="hero scroll-reveal" id="top">
-      <nav class="topbar">
-        <div class="brand-mark">
+      <nav class="topbar" data-visible-key="topbar">
+        <div class="brand-mark" data-visible-key="brandMark">
           <span class="brand-mark__line"></span>
-          <span id="navMonogram">A | B</span>
+          <span id="navMonogram" data-visible-key="navMonogram">A | B</span>
           <span class="brand-mark__line"></span>
         </div>
-        <div class="topbar__actions">
-          <a class="topbar__cta topbar__cta--ghost" id="locationQuickLink" href="#details" data-visible-key="locationQuickLink">Jump to Location</a>
-          <a class="topbar__cta" id="heroPrimaryLink" href="#countdown" data-visible-key="heroPrimaryLink">View Celebration</a>
+        <div class="topbar__actions" data-auto-hide-if-empty="true">
+          <a class="topbar__cta topbar__cta--ghost" id="locationQuickLink" href="#details"
+            data-visible-key="locationQuickLink">Jump to Location</a>
+          <a class="topbar__cta" id="heroPrimaryLink" href="#countdown" data-visible-key="heroPrimaryLink">View
+            Celebration</a>
         </div>
       </nav>
 
       <div class="hero__content">
-        <div class="eyebrow" id="heroEyebrow">A Celebration of Love</div>
-        <h1 class="hero__title">
-          <span class="hero__script" id="coupleNames">Ayla & Sam</span>
-          <span class="hero__subtitle" id="heroSubtitle">invite you to their wedding celebration</span>
+        <div class="eyebrow" id="heroEyebrow" data-visible-key="heroEyebrow">A Celebration of Love</div>
+        <h1 class="hero__title" data-auto-hide-if-empty="true">
+          <span class="hero__script" id="coupleNames" data-visible-key="coupleNames">Ayla & Sam</span>
+          <span class="hero__subtitle" id="heroSubtitle" data-visible-key="heroSubtitle">invite you to their wedding
+            celebration</span>
         </h1>
-        <p class="hero__summary" id="heroSummary">
-          Join us for an unforgettable day filled with music, warm light, beautiful flowers, and the people we love most.
+        <p class="hero__summary" id="heroSummary" data-visible-key="heroSummary">
+          Join us for an unforgettable day filled with music, warm light, beautiful flowers, and the people we love
+          most.
         </p>
 
-        <div class="hero__actions" data-visible-key="heroActions">
-          <a class="button button--primary" id="heroButtonLabel" href="#rsvp" data-visible-key="heroButtonLabel">Reserve Your Spot</a>
-          <a class="button button--ghost" id="heroDetailsLink" href="#details" data-visible-key="heroDetailsLink">See Event Details</a>
+        <div class="hero__visual scroll-reveal" data-visible-key="heroVisual">
+          <div class="hero-frame">
+            <img id="heroImage" src="" alt="Event portrait" data-visible-key="heroImage">
+            <div class="hero-frame__badge" id="heroBadge" data-visible-key="heroBadge">Save the Date</div>
+          </div>
         </div>
 
-        <div class="hero__cards" data-visible-key="heroCards">
+        <div class="hero__actions" data-visible-key="heroActions" data-auto-hide-if-empty="true">
+          <a class="button button--primary" id="heroButtonLabel" href="#rsvp"
+            data-visible-key="heroButtonLabel">Reserve Your Spot</a>
+          <a class="button button--ghost" id="heroDetailsLink" href="#details"
+            data-visible-key="heroDetailsLink">Go to Location</a>
+        </div>
+
+        <div class="hero__cards" data-visible-key="heroCards" data-auto-hide-if-empty="true">
           <article class="glass-card scroll-reveal" data-visible-key="heroDateCard">
-            <span class="glass-card__label">Date</span>
-            <strong id="eventDate">September 28, 2026</strong>
+            <span class="glass-card__label" data-visible-key="heroDateLabel">Date</span>
+            <strong id="eventDate" data-visible-key="heroDateValue">September 28, 2026</strong>
           </article>
           <article class="glass-card scroll-reveal" data-visible-key="heroVenueCard">
-            <span class="glass-card__label">Venue</span>
-            <strong id="venueName">The Garden Pavilion</strong>
+            <span class="glass-card__label" data-visible-key="heroVenueLabel">Venue</span>
+            <strong id="venueName" data-visible-key="heroVenueValue">The Garden Pavilion</strong>
           </article>
           <article class="glass-card scroll-reveal" data-visible-key="heroCityCard">
-            <span class="glass-card__label">City</span>
-            <strong id="venueCity">Cairo, Egypt</strong>
+            <span class="glass-card__label" data-visible-key="heroCityLabel">City</span>
+            <strong id="venueCity" data-visible-key="heroCityValue">Cairo, Egypt</strong>
           </article>
-        </div>
-      </div>
-
-      <div class="hero__visual scroll-reveal">
-        <div class="hero-frame">
-          <img id="heroImage" src="" alt="Event portrait">
-          <div class="hero-frame__badge" id="heroBadge">Save the Date</div>
         </div>
       </div>
     </header>
 
     <main>
       <section class="countdown-section section scroll-reveal" id="countdown" data-section="countdown">
-        <div class="section-heading">
-          <span class="section-heading__eyebrow">Marked on Our Calendar</span>
-          <h2>Countdown to the day we celebrate together</h2>
+        <div class="section-heading" data-auto-hide-if-empty="true">
+          <span class="section-heading__eyebrow" data-visible-key="countdownEyebrow">Marked on Our Calendar</span>
+          <h2 data-visible-key="countdownTitle">Countdown to the day we celebrate together</h2>
         </div>
-        <div class="countdown-grid" id="countdownGrid">
-          <article class="countdown-card">
+        <div class="countdown-grid" id="countdownGrid" data-auto-hide-if-empty="true">
+          <article class="countdown-card" data-visible-key="countdownDaysCard">
             <span id="daysValue">000</span>
-            <p>Days</p>
+            <p data-visible-key="countdownDaysLabel">Days</p>
           </article>
-          <article class="countdown-card">
+          <article class="countdown-card" data-visible-key="countdownHoursCard">
             <span id="hoursValue">00</span>
-            <p>Hours</p>
+            <p data-visible-key="countdownHoursLabel">Hours</p>
           </article>
-          <article class="countdown-card">
+          <article class="countdown-card" data-visible-key="countdownMinutesCard">
             <span id="minutesValue">00</span>
-            <p>Minutes</p>
+            <p data-visible-key="countdownMinutesLabel">Minutes</p>
           </article>
-          <article class="countdown-card">
+          <article class="countdown-card" data-visible-key="countdownSecondsCard">
             <span id="secondsValue">00</span>
-            <p>Seconds</p>
+            <p data-visible-key="countdownSecondsLabel">Seconds</p>
           </article>
         </div>
       </section>
 
       <section class="story-section section split-layout" id="story" data-section="story">
         <div class="section-copy scroll-reveal">
-          <span class="section-heading__eyebrow">Our Story</span>
-          <h2 id="storyTitle">A modern invitation page with room for emotion</h2>
-          <p id="storyBody">
-            This area can tell the story of the couple, the event, or the special meaning behind the day. Everything here can be changed from the config.
+          <span class="section-heading__eyebrow" data-visible-key="storyEyebrow">Our Story</span>
+          <h2 id="storyTitle" data-visible-key="storyTitle">A modern invitation page with room for emotion</h2>
+          <p id="storyBody" data-visible-key="storyBody">
+            This area can tell the story of the couple, the event, or the special meaning behind the day. Everything
+            here can be changed from the config.
           </p>
-          <div class="pill-list" id="storyHighlights"></div>
+          <div class="pill-list" id="storyHighlights" data-visible-key="storyHighlights"></div>
         </div>
-        <div class="timeline-card scroll-reveal" id="timelineList"></div>
+        <div class="timeline-card scroll-reveal" id="timelineList" data-visible-key="timeline"></div>
       </section>
 
       <section class="gallery-strip section" id="moments" data-section="gallery">
-        <div class="section-heading scroll-reveal">
-          <span class="section-heading__eyebrow">Selected Moments</span>
-          <h2>Place your favorite occasion photos here</h2>
+        <div class="section-heading scroll-reveal" data-auto-hide-if-empty="true">
+          <span class="section-heading__eyebrow" data-visible-key="galleryEyebrow">Selected Moments</span>
+          <h2 data-visible-key="galleryTitle">Place your favorite occasion photos here</h2>
         </div>
-        <div class="gallery-carousel scroll-reveal" id="galleryCarousel">
-          <button class="carousel-control carousel-control--prev" id="galleryPrev" type="button" aria-label="Previous photo">‹</button>
+        <div class="gallery-carousel scroll-reveal" id="galleryCarousel" data-visible-key="galleryCarousel">
+          <button class="carousel-control carousel-control--prev" id="galleryPrev" type="button"
+            aria-label="Previous photo" data-visible-key="galleryPrev">‹</button>
           <div class="gallery-viewport">
             <div class="gallery-track" id="galleryTrack"></div>
           </div>
-          <button class="carousel-control carousel-control--next" id="galleryNext" type="button" aria-label="Next photo">›</button>
+          <button class="carousel-control carousel-control--next" id="galleryNext" type="button"
+            aria-label="Next photo" data-visible-key="galleryNext">›</button>
         </div>
-        <div class="carousel-meta scroll-reveal">
-          <div class="carousel-progress" id="carouselProgress"></div>
-          <div class="carousel-caption" id="carouselCaption">Slide 1</div>
+        <div class="carousel-meta scroll-reveal" data-auto-hide-if-empty="true">
+          <div class="carousel-progress" id="carouselProgress" data-visible-key="carouselProgress"></div>
+          <div class="carousel-caption" id="carouselCaption" data-visible-key="carouselCaption">Slide 1</div>
         </div>
       </section>
 
       <section class="details-section section" id="details" data-section="details">
-        <div class="section-heading scroll-reveal">
-          <span class="section-heading__eyebrow">The Day Plan</span>
-          <h2 id="detailsHeading">Everything guests need in one warm, clear place</h2>
+        <div class="section-heading scroll-reveal" data-auto-hide-if-empty="true">
+          <span class="section-heading__eyebrow" data-visible-key="detailsEyebrow">The Day Plan</span>
+          <h2 id="detailsHeading" data-visible-key="detailsHeading">Everything guests need in one warm, clear place</h2>
         </div>
-        <div class="details-grid">
-          <article class="detail-card scroll-reveal">
-            <h3>Location</h3>
-            <p id="detailsVenue"></p>
-            <a class="text-link" id="mapLink" target="_blank" rel="noreferrer">Open map</a>
+        <div class="details-grid" data-auto-hide-if-empty="true">
+          <article class="detail-card scroll-reveal" data-visible-key="locationCard">
+            <h3 data-visible-key="locationCardTitle">Location</h3>
+            <p id="detailsVenue" data-visible-key="locationCardText"></p>
+            <a class="text-link" id="mapLink" target="_blank" rel="noreferrer" data-visible-key="mapLink">Open map</a>
           </article>
-          <article class="detail-card scroll-reveal">
-            <h3>Dress Code</h3>
-            <p id="dressCodeText"></p>
+          <article class="detail-card scroll-reveal" data-visible-key="dressCodeCard">
+            <h3 data-visible-key="dressCodeCardTitle">Dress Code</h3>
+            <p id="dressCodeText" data-visible-key="dressCodeCardText"></p>
           </article>
-          <article class="detail-card scroll-reveal">
-            <h3>Notes</h3>
-            <p id="eventNotes"></p>
+          <article class="detail-card scroll-reveal" data-visible-key="notesCard">
+            <h3 data-visible-key="notesCardTitle">Notes</h3>
+            <p id="eventNotes" data-visible-key="notesCardText"></p>
           </article>
         </div>
-        <div class="schedule-panel scroll-reveal" id="scheduleList"></div>
+        <div class="schedule-panel scroll-reveal" id="scheduleList" data-visible-key="schedule"></div>
       </section>
 
       <section class="music-section section split-layout" id="music" data-section="music">
-        <div class="music-widget scroll-reveal">
-          <button class="record-player" id="musicToggle" type="button" aria-pressed="false" aria-label="Toggle event song">
+        <div class="music-widget scroll-reveal" data-visible-key="musicWidget">
+          <button class="record-player" id="musicToggle" type="button" aria-pressed="false"
+            aria-label="Toggle event song" data-visible-key="musicToggle">
             <span class="record-player__arm"></span>
             <span class="record-player__disc">
-              <span class="record-player__label" id="songMonogram">A & S</span>
+              <span class="record-player__label" id="songMonogram" data-visible-key="songMonogram">A & S</span>
             </span>
           </button>
           <audio id="eventAudio" preload="metadata"></audio>
         </div>
         <div class="section-copy scroll-reveal">
-          <span class="section-heading__eyebrow">Sound of the Celebration</span>
-          <h2 id="songTitle">A song woven into the invitation</h2>
-          <p id="songDescription">
-            Add a meaningful track and let guests discover it through an interactive record player instead of a basic play button.
+          <span class="section-heading__eyebrow" data-visible-key="musicEyebrow">Sound of the Celebration</span>
+          <h2 id="songTitle" data-visible-key="songTitle">A song woven into the invitation</h2>
+          <p id="songDescription" data-visible-key="songDescription">
+            Add a meaningful track and let guests discover it through an interactive record player instead of a basic
+            play button.
           </p>
-          <div class="song-meta">
-            <div>
-              <span>Now Featured</span>
-              <strong id="songCredit">Artist Name</strong>
+          <div class="song-meta" data-auto-hide-if-empty="true">
+            <div data-visible-key="songCreditBlock">
+              <span data-visible-key="songCreditLabel">Now Featured</span>
+              <strong id="songCredit" data-visible-key="songCreditValue">Artist Name</strong>
             </div>
-            <div>
-              <span>Status</span>
-              <strong id="songStatus">Paused</strong>
+            <div data-visible-key="songStatusBlock">
+              <span data-visible-key="songStatusLabel">Status</span>
+              <strong id="songStatus" data-visible-key="songStatusValue">Paused</strong>
             </div>
           </div>
         </div>
       </section>
 
       <section class="upload-section section" id="upload" data-section="upload">
-        <div class="section-heading scroll-reveal">
-          <span class="section-heading__eyebrow">Shared Memories</span>
-          <h2>Guest photo uploads can unlock on the wedding day</h2>
-          <p id="uploadDescription">
+        <div class="section-heading scroll-reveal" data-auto-hide-if-empty="true">
+          <span class="section-heading__eyebrow" data-visible-key="uploadEyebrow">Shared Memories</span>
+          <h2 data-visible-key="uploadTitle">Share your favorite moment of the day.</h2>
+          <p id="uploadDescription" data-visible-key="uploadDescription">
             Keep this section locked until the event, or unlock it anytime from the config file.
           </p>
         </div>
-        <div class="upload-panel scroll-reveal" id="uploadPanel">
+        <div class="upload-panel scroll-reveal" id="uploadPanel" data-visible-key="uploadPanel">
           <div class="upload-status" id="uploadStatus" data-visible-key="uploadStatus"></div>
-          <label class="upload-dropzone" id="uploadDropzone">
+          <label class="upload-dropzone" id="uploadDropzone" data-visible-key="uploadDropzone">
             <input id="photoInput" type="file" accept="image/*,video/*" multiple>
-            <span class="upload-dropzone__title" id="uploadDropzoneTitle">Tap to choose celebration photos</span>
-            <span class="upload-dropzone__hint" id="uploadDropzoneHint">This first iteration previews files locally. Connect it later to cloud storage or a backend endpoint.</span>
+            <span class="upload-dropzone__title" id="uploadDropzoneTitle" data-visible-key="uploadDropzoneTitle">Tap to choose celebration photos</span>
+            <span class="upload-dropzone__hint" id="uploadDropzoneHint" data-visible-key="uploadDropzoneHint">This first iteration previews files locally.
+              Connect it later to cloud storage or a backend endpoint.</span>
             <span class="upload-dropzone__spark upload-dropzone__spark--one" aria-hidden="true"></span>
             <span class="upload-dropzone__spark upload-dropzone__spark--two" aria-hidden="true"></span>
           </label>
           <div class="upload-toolbar" id="uploadToolbar" data-visible-key="uploadToolbar">
-            <div class="upload-toolbar__meta">
-              <strong id="uploadSelectionCount">No files selected yet</strong>
-              <span id="uploadTargetHint">Uploads can be sent to your configured Google Drive upload endpoint.</span>
+            <div class="upload-toolbar__meta" data-auto-hide-if-empty="true">
+              <strong id="uploadSelectionCount" data-visible-key="uploadSelectionCount">No files selected yet</strong>
+              <span id="uploadTargetHint" data-visible-key="uploadTargetHint">Uploads can be sent to your configured Google Drive upload endpoint.</span>
             </div>
-            <div class="upload-toolbar__actions">
-              <a class="button button--ghost" id="uploadFolderLink" href="#" target="_blank" rel="noreferrer" data-visible-key="uploadFolderLink">Open Drive Folder</a>
-              <button class="button button--primary" id="uploadSubmit" type="button" data-visible-key="uploadSubmit">Submit Photos & Videos</button>
+            <div class="upload-toolbar__actions" data-auto-hide-if-empty="true">
+              <a class="button button--ghost" id="uploadFolderLink" href="#" target="_blank" rel="noreferrer"
+                data-visible-key="uploadFolderLink">Open Drive Folder</a>
+              <button class="button button--primary" id="uploadSubmit" type="button"
+                data-visible-key="uploadSubmit">Submit Photos & Videos</button>
             </div>
           </div>
-          <div class="preview-grid" id="previewGrid"></div>
+          <div class="preview-grid" id="previewGrid" data-visible-key="previewGrid"></div>
         </div>
       </section>
 
       <section class="rsvp-section section split-layout" id="rsvp" data-section="rsvp">
         <div class="section-copy scroll-reveal">
-          <span class="section-heading__eyebrow">RSVP</span>
-          <h2 id="rsvpTitle">Let us know if we’ll celebrate with you</h2>
-          <p id="rsvpDescription">
-            Keep this form visible, hide it entirely, or replace the submit link with a WhatsApp, form, or email destination.
+          <span class="section-heading__eyebrow" data-visible-key="rsvpEyebrow">RSVP</span>
+          <h2 id="rsvpTitle" data-visible-key="rsvpTitle">Let us know if we’ll celebrate with you</h2>
+          <p id="rsvpDescription" data-visible-key="rsvpDescription">
+            Keep this form visible, hide it entirely, or replace the submit link with a WhatsApp, form, or email
+            destination.
           </p>
           <div class="contact-chips" id="contactChips" data-visible-key="rsvpContacts"></div>
         </div>
-        <form class="rsvp-card scroll-reveal" id="rsvpForm">
-          <label>
+        <form class="rsvp-card scroll-reveal" id="rsvpForm" data-visible-key="rsvpForm">
+          <label data-visible-key="rsvpNameField">
             Full Name
             <input id="guestName" name="guestName" type="text" placeholder="Your name">
           </label>
-          <label>
+          <label data-visible-key="rsvpAttendanceField">
             Attendance
             <select id="guestAttendance" name="guestAttendance">
               <option value="Accepts with joy">Accepts with joy</option>
               <option value="Sending love from afar">Sending love from afar</option>
             </select>
           </label>
-          <label>
+          <label data-visible-key="rsvpMessageField">
             Message
             <textarea id="guestMessage" name="guestMessage" rows="4" placeholder="A warm note for the hosts"></textarea>
           </label>
-          <button class="button button--primary" id="rsvpSubmit" type="submit">Send RSVP</button>
+          <button class="button button--primary" id="rsvpSubmit" type="submit" data-visible-key="rsvpSubmit">Send RSVP</button>
         </form>
       </section>
 
       <section class="extras-section section" id="extras" data-section="extras">
-        <div class="extras-grid">
+        <div class="extras-grid" data-auto-hide-if-empty="true">
           <article class="extra-card scroll-reveal" data-block="guestbook">
-            <span class="section-heading__eyebrow">Guestbook</span>
-            <h3 id="guestbookTitle">Leave a sweet note</h3>
-            <p id="guestbookText"></p>
+            <span class="section-heading__eyebrow" data-visible-key="guestbookEyebrow">Guestbook</span>
+            <h3 id="guestbookTitle" data-visible-key="guestbookTitle">Leave a sweet note</h3>
+            <p id="guestbookText" data-visible-key="guestbookText"></p>
           </article>
           <article class="extra-card scroll-reveal" data-block="dressPalette">
-            <span class="section-heading__eyebrow">Palette</span>
-            <h3 id="paletteTitle">A look that matches the mood</h3>
-            <div class="swatch-row" id="dressPaletteSwatches"></div>
+            <span class="section-heading__eyebrow" data-visible-key="paletteEyebrow">Palette</span>
+            <h3 id="paletteTitle" data-visible-key="paletteTitle">A look that matches the mood</h3>
+            <div class="swatch-row" id="dressPaletteSwatches" data-visible-key="dressPaletteSwatches"></div>
           </article>
           <article class="extra-card scroll-reveal" data-block="faq">
-            <span class="section-heading__eyebrow">FAQ</span>
-            <h3 id="faqTitle">Helpful notes for guests</h3>
-            <div class="faq-list" id="faqList"></div>
+            <span class="section-heading__eyebrow" data-visible-key="faqEyebrow">FAQ</span>
+            <h3 id="faqTitle" data-visible-key="faqTitle">Helpful notes for guests</h3>
+            <div class="faq-list" id="faqList" data-visible-key="faqList"></div>
           </article>
         </div>
       </section>
     </main>
 
-    <footer class="footer section scroll-reveal">
-      <p id="footerMessage">We can’t wait to celebrate with you.</p>
-      <a href="#top" class="text-link">Back to top</a>
+    <footer class="footer section scroll-reveal" data-visible-key="footer">
+      <p id="footerMessage" data-visible-key="footerMessage">We can’t wait to celebrate with you.</p>
+      <a href="#top" class="text-link" data-visible-key="backToTopLink">Back to top</a>
     </footer>
   </div>
 
   <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>

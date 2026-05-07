@@ -9,6 +9,7 @@
   const sectionNodes = document.querySelectorAll("[data-section]");
   const blockNodes = document.querySelectorAll("[data-block]");
   const visibilityNodes = document.querySelectorAll("[data-visible-key]");
+  const autoHideNodes = document.querySelectorAll("[data-auto-hide-if-empty]");
   let selectedUploadFiles = [];
   let galleryIndex = 0;
 
@@ -49,6 +50,13 @@
   function isVisibleByKey(key) {
     const value = getVisibilityValue(key);
     return value !== false;
+  }
+
+  function applyAutoHideGroups() {
+    autoHideNodes.forEach((node) => {
+      const visibleChildren = Array.from(node.children).filter((child) => !child.hidden);
+      setHiddenState(node, visibleChildren.length > 0);
+    });
   }
 
   function applyTheme() {
@@ -215,6 +223,8 @@
     if (uploadToolbar) {
       setHiddenState(uploadToolbar, toolbarExplicitlyVisible && hasVisibleToolbarAction);
     }
+
+    applyAutoHideGroups();
   }
 
   function renderStoryHighlights() {
@@ -249,12 +259,21 @@
     const track = $("galleryTrack");
     const progress = $("carouselProgress");
     const caption = $("carouselCaption");
+    const galleryImages = config.media.galleryImages.filter((_, index) => isVisibleByKey(`gallerySlide${index + 1}`));
 
     if (!track || !progress || !caption) {
       return;
     }
 
-    track.innerHTML = config.media.galleryImages
+    if (!galleryImages.length) {
+      track.innerHTML = "";
+      progress.innerHTML = "";
+      caption.textContent = "No slides";
+      setHiddenState($("galleryCarousel"), false);
+      return;
+    }
+
+    track.innerHTML = galleryImages
       .map(
         (src, index) => `
           <figure class="gallery-card gallery-slide">
@@ -264,13 +283,13 @@
       )
       .join("");
 
-    progress.innerHTML = config.media.galleryImages
+    progress.innerHTML = galleryImages
       .map(
         (_, index) => `<button class="carousel-dot${index === 0 ? " is-active" : ""}" type="button" data-slide-index="${index}" aria-label="Go to slide ${index + 1}"></button>`
       )
       .join("");
 
-    caption.textContent = `Slide 1 of ${config.media.galleryImages.length}`;
+    caption.textContent = galleryImages.length ? `Slide 1 of ${galleryImages.length}` : "No slides";
   }
 
   function setupGalleryCarousel() {
@@ -691,7 +710,6 @@
 
   applyTheme();
   applyContent();
-  applyVisibility();
   renderStoryHighlights();
   renderTimeline();
   renderGallery();
@@ -699,6 +717,7 @@
   renderContacts();
   renderFaq();
   renderPalette();
+  applyVisibility();
   setupIntroScreen();
   setupCountdown();
   setupGalleryCarousel();
