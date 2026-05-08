@@ -8,14 +8,30 @@ window.invitationConfig = {
   allowUploadsAnytime: true,
   theme: {
     colors: {
-      primary: "#2E3604",
-      secondary: "#4E5E07",
-      accent: "#E19D29",
-      blush: "#D8D2CF",
-      stone: "#8D8179",
-      canvas: "#f6f0ea",
-      ink: "#231815",
-      white: "#fffdf9"
+      primary: "#A64D79",        // dusty rose
+      secondary: "#D48BA3",      // warm blush pink
+      accent: "#F6D1B1",         // champagne peach
+
+      blush: "#3B1F2B",          // muted plum rose
+      stone: "#6E4152",          // warm mauve layer
+
+      canvas: "#1C1016",         // deep cocoa-plum background
+      ink: "#F9E6D8",            // warm ivory-pink text
+      white: "#2B1821",          // card surface
+
+      backgroundTop: "#140A0F",  // dark rosewood
+      backgroundBottom: "#311520", // soft wine pink
+
+      surface: "#40202D",        // elevated card tone
+      surfaceStrong: "#5A2E3F",  // stronger layered surface
+
+      line: "#E6B7A9",           // elegant champagne border
+
+      glow: "#F6C7B8",           // warm romantic glow
+      glowSoft: "#A85C79",       // soft rose bloom
+
+      textMuted: "#DDBFAF",      // muted warm text
+      overlay: "#12080D"         // cinematic overlay
     },
     fonts: {
       heading: "'Cormorant Garamond', serif",

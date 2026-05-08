@@ -65,6 +65,7 @@
     const colors = config.theme.colors;
     Object.entries(colors).forEach(([name, value]) => {
       root.style.setProperty(`--color-${name}`, value);
+      root.style.setProperty(`--color-${name}-rgb`, hexToRgbString(value));
     });
     root.style.setProperty("--font-heading", config.theme.fonts.heading);
     root.style.setProperty("--font-body", config.theme.fonts.body);
@@ -73,6 +74,20 @@
     if (fontLink && config.theme.fontEmbedUrl) {
       fontLink.href = config.theme.fontEmbedUrl;
     }
+  }
+
+  function hexToRgbString(value) {
+    const hex = value.replace("#", "").trim();
+    const normalized = hex.length === 3
+      ? hex.split("").map((char) => char + char).join("")
+      : hex;
+
+    const safeHex = normalized.padEnd(6, "0").slice(0, 6);
+    const int = Number.parseInt(safeHex, 16);
+    const r = (int >> 16) & 255;
+    const g = (int >> 8) & 255;
+    const b = int & 255;
+    return `${r} ${g} ${b}`;
   }
 
   function setText(id, value) {
